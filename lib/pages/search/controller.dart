@@ -5,6 +5,7 @@ import 'package:hikari_novel_flutter/models/novel_cover.dart';
 import 'package:hikari_novel_flutter/models/page_state.dart';
 import 'package:hikari_novel_flutter/models/resource.dart';
 import 'package:hikari_novel_flutter/network/parser.dart';
+import 'package:hikari_novel_flutter/router/route_path.dart';
 
 import '../../common/database/database.dart';
 import '../../network/api.dart';
@@ -53,6 +54,10 @@ class SearchController extends GetxController {
     Get.focusScope?.unfocus();
   }
 
+  void goLogin() {
+    Get.toNamed(RoutePath.login);
+  }
+
   Future<IndicatorResult> getPage(bool loadMore) async {
     if (!loadMore) pageState.value = PageState.loading;
 
@@ -78,14 +83,17 @@ class SearchController extends GetxController {
       case Success():
         {
           final html = result.data;
+
+          // 检查是否是错误页面（需要登录）
           if (Parser.isError(html)) {
             if (!loadMore) {
-              pageState.value = PageState.inFiveSecond;
+              errorMsg = "need_login_to_browse".tr;
+              pageState.value = PageState.needLogin;
             } else {
               Get.dialog(
                 AlertDialog(
                   title: Text("warning".tr),
-                  content: Text("search_too_quickly_tip".tr),
+                  content: Text("need_login_to_browse".tr),
                   actions: [TextButton(onPressed: Get.back, child: Text("confirm".tr))],
                 ),
               );

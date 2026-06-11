@@ -12,12 +12,23 @@ class AppSubRouter {
   //子路由Key
   static final GlobalKey<NavigatorState>? subNavigatorKey = Get.nestedKey(subNavigatorId);
 
+  //防止重复点击
+  static bool _isNavigating = false;
+
   static void _toContentPage(String name, {dynamic arg, bool replace = false}) {
+    if (_isNavigating) return;
+    _isNavigating = true;
+
     if (currentContentRouteName == name || replace) {
       Get.offAndToNamed(name, arguments: arg, id: subNavigatorId);
     } else {
       Get.toNamed(name, arguments: arg, id: subNavigatorId);
     }
+
+    // 重置标志
+    Future.delayed(const Duration(milliseconds: 500), () {
+      _isNavigating = false;
+    });
   }
 
   static void toNovelDetail({required String aid}) => _toContentPage(RoutePath.novelDetail, arg: aid);

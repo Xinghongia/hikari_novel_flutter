@@ -24,6 +24,7 @@ import '../../common/log.dart';
 import '../../models/cat_volume.dart';
 import '../../models/page_state.dart';
 import '../../network/api.dart';
+import '../../router/route_path.dart';
 import '../../service/db_service.dart';
 import '../../service/local_storage_service.dart';
 import 'widgets/paper_curl_pager.dart';
@@ -31,6 +32,7 @@ import 'widgets/paper_curl_pager.dart';
 class ReaderController extends GetxController {
   final _novelDetailController = Get.find<NovelDetailController>();
 
+  bool _isClosed = false;
   late List<CatVolume> catalogue;
   late String aid;
   late int currentVolumeIndex;
@@ -54,6 +56,18 @@ class ReaderController extends GetxController {
 
   ///阅读界面显示操作栏
   RxBool showBar = false.obs;
+
+  /// 防止快速点击
+  bool _isTogglingBar = false;
+
+  void toggleShowBar() {
+    if (_isTogglingBar) return;
+    _isTogglingBar = true;
+    showBar.value = !showBar.value;
+    Future.delayed(const Duration(milliseconds: 200), () {
+      _isTogglingBar = false;
+    });
+  }
 
   bool get isDualPage => switch (readerSettingsState.value.dualPageMode) {
     DualPageMode.auto => Get.context!.shouldAutoUseDualPage(),
@@ -148,6 +162,7 @@ class ReaderController extends GetxController {
 
   @override
   void onClose() {
+    _isClosed = true;
     TtsService.instance.stop();
     if (readerSettingsState.value.wakeLock) WakelockPlus.toggle(enable: false);
     _applyReaderSystemUi(false);
@@ -184,6 +199,10 @@ class ReaderController extends GetxController {
     initialVerticalOffset = 0;
   }
 
+  void goLogin() {
+    Get.toNamed(RoutePath.login);
+  }
+
   Stream<DateTime> clockStream() => Stream.periodic(const Duration(seconds: 1), (_) => DateTime.now());
 
   Future<void> getContent() async {
@@ -203,10 +222,21 @@ class ReaderController extends GetxController {
 
   Future<void> _getContentByNetwork() async {
     final result = await Api.getNovelContent(aid: aid, cid: cid);
+    if (_isClosed) return;
+
     switch (result) {
       case Success():
         {
+          // 检查是否是错误页面（需要登录）
+          if (Parser.isError(result.data as String)) {
+            errorMsg = "need_login_to_browse".tr;
+            pageState.value = PageState.needLogin;
+            return;
+          }
+
           final content = await compute(Parser.getContent, result.data as String);
+          if (_isClosed) return;
+
           images.value = content.images;
           chapterTitle.value = catalogue[currentVolumeIndex].chapters[currentChapterIndex].title;
           text.value = content.text;

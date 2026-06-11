@@ -16,44 +16,65 @@ import '../models/common/charsets_type.dart';
 import '../service/local_storage_service.dart';
 import 'api.dart';
 
-/// 网络请求
+/// 网络请求层
+///
+/// 负责与 wenku8 服务器的所有 HTTP 通信。
+/// wenku8 不提供 JSON API，所有数据都是服务端渲染的 HTML 页面，
+/// 所以这里拿到的是原始字节，需要手动 GBK/Big5 解码。
 class Request {
+  /// 伪装成 Chrome 浏览器的 User-Agent，避免被服务器拒绝
   static const userAgent = {
     io.HttpHeaders.userAgentHeader:
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0",
   };
 
+  /// Cookie 存储，用于在请求中自动携带登录态
   static final _dioCookieJar = ckjar.CookieJar();
+
+  /// Dio 实例，全局复用
   static final Dio dio =
       Dio(
           BaseOptions(
             headers: userAgent,
-            responseType: ResponseType.bytes, //使用bytes获取原始数据，方便解码
-            followRedirects: false, //使302重定向手动处理
-            validateStatus: (status) => status != null, //只要不是 null，就交给拦截器处理,
+            // 【关键】用 bytes 模式拿原始字节，因为 wenku8 用 GBK/Big5 编码，不是 UTF-8
+            // 如果用默认的 JSON/String 模式，中文会乱码
+            responseType: ResponseType.bytes,
+            // 【关键】禁用自动重定向，wenku8 登录后会 302 跳转，需要手动跟随以保留 Cookie
+            followRedirects: false,
+            // 所有 HTTP 状态码都进入拦截器处理（包括 403、302 等）
+            validateStatus: (status) => status != null,
           ),
         )
+        // Cloudflare 拦截器：检测 403 和人机验证
         ..interceptors.add(CloudflareInterceptor())
+        // Cookie 管理器：自动在请求中携带 Cookie，自动保存服务器返回的 Cookie
         ..interceptors.add(CookieManager(_dioCookieJar));
 
+  /// 从本地存储恢复 Cookie 到 Dio 的 CookieJar
+  ///
+  /// 登录成功后，Cookie 会保存到 Hive 本地存储。
+  /// 应用启动时调用此方法，把 Cookie 注入到 Dio 中，
+  /// 这样后续所有请求都会自动携带登录态。
   static void initCookie() {
     final localCookie = LocalStorageService.instance.getCookie();
 
     if (localCookie == null) return;
 
+    // 解析 "jieqiUserInfo=xxx;jieqiVisitInfo=yyy" 格式的 Cookie 字符串
     final cookies = localCookie.split(';').map((e) => e.trim()).where((e) => e.contains('=')).map((e) {
       final kv = e.split('=');
       return ckjar.Cookie(kv[0], kv.sublist(1).join('='));
     }).toList();
 
+    // 同时写入两个域名（wenku8 有两个镜像站）
     _dioCookieJar.saveFromResponse(Uri.parse(Wenku8Node.wwwWenku8Cc.node), cookies);
     _dioCookieJar.saveFromResponse(Uri.parse(Wenku8Node.wwwWenku8Net.node), cookies);
   }
 
+  /// 清除所有 Cookie（退出登录时调用）
   static void deleteCookie() => _dioCookieJar.deleteAll();
 
-  ///获取通用数据（如其他网站的数据，即不用wenku8的cookie）
-  /// - [url] 对应网站的url
+  /// 获取通用数据（如 GitHub API），不用 wenku8 的 Cookie
   static Future<Resource> getCommonData(String url) async {
     try {
       final dio = Dio(BaseOptions(headers: userAgent));
@@ -64,11 +85,17 @@ class Request {
     }
   }
 
-  ///获取wenku8数据
-  /// - [url] 对应的url
-  /// - [charsetsType] response解码的方式
+  /// 【核心方法】获取 wenku8 的 HTML 页面
+  ///
+  /// 完整流程：
+  /// ① URL 追加 charset 参数（告诉服务器用什么编码返回）
+  /// ② Dio 发起 GET 请求，拿到 Uint8List 原始字节
+  /// ③ 检查 302 重定向，手动跟随（保留 Cookie）
+  /// ④ GBK/Big5 解码，把字节流转成 Dart String
+  /// ⑤ 包装成 Success(html) 返回
   static Future<Resource> get(String url, {required CharsetsType charsetsType}) async {
     try {
+      // ① 追加 charset 参数
       if (!url.contains("?")) url += "?";
       switch (charsetsType) {
         case CharsetsType.gbk:
@@ -79,20 +106,25 @@ class Request {
 
       Log.d("$url ${charsetsType.name}");
 
+      // ② 发起 GET 请求（response.data 是 Uint8List，因为上面配置了 ResponseType.bytes）
       final response = await dio.get(url);
 
-      //检查是否有重定向
+      // ③ 检查 302 重定向（wenku8 登录后会跳转，需要手动跟随）
       final result = await _checkRedirects(response);
 
+      // ④ 把字节流解码成字符串
       final raw = result as Uint8List;
       late String decodedHtml;
       switch (charsetsType) {
         case CharsetsType.gbk:
+          // GBK 解码：简体中文页面
           decodedHtml = GbkDecoder().convert(raw);
         case CharsetsType.big5Hkscs:
+          // Big5 解码：繁体中文页面
           decodedHtml = Big5Decoder().convert(raw);
       }
 
+      // ⑤ 返回解码后的 HTML 字符串
       return Success(decodedHtml);
     } catch (e) {
       Log.e(e.toString());
@@ -100,31 +132,38 @@ class Request {
     }
   }
 
-  /// 检查Response包中是否要求重定向
-  /// - [response] 要检查的Response包
+  /// 检查 302 重定向并手动跟随
+  ///
+  /// 为什么要手动处理？因为 Dio 默认的重定向不保留 Cookie，
+  /// 而 wenku8 的登录态依赖 Cookie，必须带着 Cookie 跟随重定向。
   static Future<dynamic> _checkRedirects(Response response) async {
     if (response.statusCode != null && response.statusCode! >= 300 && response.statusCode! < 400) {
       final location = response.headers.value('location');
       if (location != null) {
+        // 手动发起重定向请求（Dio 实例自带 Cookie，会自动携带）
         final redirectedResponse = await dio.get("${Api.wenku8Node.node}/$location");
         return redirectedResponse.data;
       }
     }
+    // 不是 302，直接返回原始数据
     return response.data;
   }
 
-  /// 以post方法进行http请求
-  /// body以Content-Type: application/x-www-form-urlencoded的形式进行发送
-  /// - [url] 要请求的url
-  /// - [data] 此post请求的body，当body中含有url编码的内容时，需要使用String类型而非Map类型！目前不知道是什么原因，可能是因为dio的二次编码？
-  /// - [charsetsType] response解码的方式
+  /// 以 POST 方法发送表单数据
+  ///
+  /// 用于发表评论、回复、批量操作书架等写入操作。
+  /// Content-Type: application/x-www-form-urlencoded
+  ///
+  /// 注意：当 body 含有 URL 编码的中文时，data 必须用 String 类型，
+  /// 不能用 Map，否则 Dio 会二次编码导致乱码。
   static Future<Resource> postForm(String url, {required Object? data, required CharsetsType charsetsType}) async {
     try {
       final response = await dio.post(
         url,
         data: data,
-        options: Options(contentType: Headers.formUrlEncodedContentType), //设置为application/x-www-form-urlencoded
+        options: Options(contentType: Headers.formUrlEncodedContentType),
       );
+      // 同样需要手动 GBK/Big5 解码
       String decodedHtml;
       switch (charsetsType) {
         case CharsetsType.gbk:

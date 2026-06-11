@@ -465,11 +465,21 @@ class Parser {
   static bool isError(String html) {
     Document document = parse(html);
 
+    // 检查标题是否包含 "出错啦"
+    final titleElement = document.querySelector('title');
+    if (titleElement != null) {
+      final title = titleElement.text;
+      if (title.contains('出错啦') || title.contains('出錯啦')) {
+        return true;
+      }
+    }
+
+    // 检查 .blocktitle 元素
     List<Element> elements = document.getElementsByClassName('blocktitle');
 
     String t;
     try {
-      if (elements.isEmpty) throw StateError('No .blocktitle elements found');
+      if (elements.isEmpty) return false;
       t = elements.first.text;
     } catch (_) {
       return false;
@@ -509,7 +519,12 @@ class Parser {
   static Content getContent(String html) {
     // 解析HTML并提取核心内容
     Document document = parse(html);
-    Element contentElement = document.getElementById('content')!;
+    Element? contentElement = document.getElementById('content');
+
+    // 如果没有 content 元素（可能是错误页面），返回空内容
+    if (contentElement == null) {
+      return Content(text: '', images: []);
+    }
 
     // 提取所有img标签的src属性到List
     List<String> imgSrcList = [];

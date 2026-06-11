@@ -293,6 +293,7 @@ class AppTranslations extends Translations {
       "para_indent": "首行缩进",
       "para_spacing": "段距",
       "bottomStatusBarHorizontalSpacing": "底部状态栏文字边距",
+      "need_login_to_browse": "轻小说文库要求登录后才能浏览内容",
     },
 
     "zh_TW": {
@@ -585,6 +586,7 @@ class AppTranslations extends Translations {
       "para_indent": "首行縮進",
       "para_spacing": "段距",
       "bottomStatusBarHorizontalSpacing": "底部狀態欄文字邊距",
+      "need_login_to_browse": "輕小說文庫要求登入後才能瀏覽內容",
     }
   };
 }

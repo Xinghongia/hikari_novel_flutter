@@ -73,6 +73,7 @@ class LoginController extends GetxController {
           return;
         }
 
+        // 登录成功，返回主页（会自动刷新书架和我的页面）
         Get.offAllNamed(RoutePath.main);
       }
     }

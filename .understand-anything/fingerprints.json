@@ -1,0 +1,1227 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "dd6437749a5bfa45c0ea04891e6197557763a479",
+  "generatedAt": "2026-06-10T11:58:34.853Z",
+  "files": {
+    "lib/main.dart": {
+      "filePath": "lib/main.dart",
+      "contentHash": "1dd1f77b35ced092a92141d081b544731d65198e3a1eb7e26456516083c7b3f8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 191,
+      "hasStructuralAnalysis": false
+    },
+    "lib/hive_registrar.g.dart": {
+      "filePath": "lib/hive_registrar.g.dart",
+      "contentHash": "f3e61aa387cce498097e7dc963e75563e98ca4f01fe6827e25a580fd450dd699",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 19,
+      "hasStructuralAnalysis": false
+    },
+    "lib/base/base_list_page_controller.dart": {
+      "filePath": "lib/base/base_list_page_controller.dart",
+      "contentHash": "df86a1916b9ae1f6722a9de9e9a28189c8406507f0fe107b30538f0fd41986bb",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 65,
+      "hasStructuralAnalysis": false
+    },
+    "lib/base/base_select_list_page_controller.dart": {
+      "filePath": "lib/base/base_select_list_page_controller.dart",
+      "contentHash": "2b1c78580f092379faa08ae9d1cb01104d6ae6a693ec2c2694d45ccd01f5719e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 61,
+      "hasStructuralAnalysis": false
+    },
+    "lib/common/app_translations.dart": {
+      "filePath": "lib/common/app_translations.dart",
+      "contentHash": "3b3cc7457394e8fd7fa7e2d1aaac509a7d26ba6ad2c91d5133a552f6b384ce92",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 591,
+      "hasStructuralAnalysis": false
+    },
+    "lib/common/common_widgets.dart": {
+      "filePath": "lib/common/common_widgets.dart",
+      "contentHash": "208fc06f2d5afae319784316bc948656e01f5d8da95ac6d15e349232f7bfcced",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 110,
+      "hasStructuralAnalysis": false
+    },
+    "lib/common/constants.dart": {
+      "filePath": "lib/common/constants.dart",
+      "contentHash": "953ad206fec6da38f3cb5b5a46eccc164d413ea00564c2f01328a1f5e8d754be",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 22,
+      "hasStructuralAnalysis": false
+    },
+    "lib/common/database/database.dart": {
+      "filePath": "lib/common/database/database.dart",
+      "contentHash": "484b8c554c32acc9febb2aaecefbb54aa77a51e50da77d99ecdfa057a3c94d64",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 87,
+      "hasStructuralAnalysis": false
+    },
+    "lib/common/database/database.g.dart": {
+      "filePath": "lib/common/database/database.g.dart",
+      "contentHash": "d8e77d1fe61b16afc5bd95939ae2a1ce32b40504114a31ea67b915ca34fa97f6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2600,
+      "hasStructuralAnalysis": false
+    },
+    "lib/common/database/entity.dart": {
+      "filePath": "lib/common/database/entity.dart",
+      "contentHash": "0f1010b773c6333793b94752e3f07758cd7715f3f30e72c2e4c883ab3095cde9",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 88,
+      "hasStructuralAnalysis": false
+    },
+    "lib/common/extension.dart": {
+      "filePath": "lib/common/extension.dart",
+      "contentHash": "93b9384e02dcca5f0d1d86491994759308a1a79371b60eb4805184b07487a7d2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 53,
+      "hasStructuralAnalysis": false
+    },
+    "lib/common/html_debug_logger.dart": {
+      "filePath": "lib/common/html_debug_logger.dart",
+      "contentHash": "1bbff8a2342bcbaaa407717e8f5aae18005086360d478e59907a84590dc45749",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 105,
+      "hasStructuralAnalysis": false
+    },
+    "lib/common/log.dart": {
+      "filePath": "lib/common/log.dart",
+      "contentHash": "91ffe5cd6da479f42289c88b5ca5627fcae32ece806b0a3eff7857a95d562e13",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 37,
+      "hasStructuralAnalysis": false
+    },
+    "lib/common/migration.dart": {
+      "filePath": "lib/common/migration.dart",
+      "contentHash": "6fbdc9fda76ac3032a124846e56b255c12a881b92aabcfe11c8e0684f211b592",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 57,
+      "hasStructuralAnalysis": false
+    },
+    "lib/common/util.dart": {
+      "filePath": "lib/common/util.dart",
+      "contentHash": "dff7ebc03cc0c75a97c906ce30bc164e8023a4cc8cda7fcfaf77f3c35cba6e4d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 84,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/bookshelf.dart": {
+      "filePath": "lib/models/bookshelf.dart",
+      "contentHash": "e72af6970e3eff0546a5007d67a49e0a5a044ab80f48e6ee38fd95924cb2a86a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 22,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/browsing_history.dart": {
+      "filePath": "lib/models/browsing_history.dart",
+      "contentHash": "c424282669a9ba1ad2d486e0d99a64c432d1a226bf0fd4ae02344ed1a1c88904",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 9,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/cache_status.dart": {
+      "filePath": "lib/models/cache_status.dart",
+      "contentHash": "44ee3d5a152f19c4a5163bfb9131f27315c2c57da8b719e6e8455770ef1e2ec9",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/cat_chapter.dart": {
+      "filePath": "lib/models/cat_chapter.dart",
+      "contentHash": "bda364d5242bbd420418cd65cebbad4e1212b22286611200af31e77c77c503f2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 27,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/cat_chapter.g.dart": {
+      "filePath": "lib/models/cat_chapter.g.dart",
+      "contentHash": "1be0f0e1ca0b495d092652037c2c49b0bd1c25b6f29857a34eb4637acf101d6d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 14,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/cat_volume.dart": {
+      "filePath": "lib/models/cat_volume.dart",
+      "contentHash": "29d55cbf3620cd662138d098c87f0b448f8e7300e6408cc4511d914273d79d11",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 30,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/cat_volume.g.dart": {
+      "filePath": "lib/models/cat_volume.g.dart",
+      "contentHash": "edcb44f28e4b5a4ef75991f7e4c2ab7b5473e713be752aef23c081850172d791",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 20,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/chapter_cache_task.dart": {
+      "filePath": "lib/models/chapter_cache_task.dart",
+      "contentHash": "402ef635afad82d6c68a994dc9fa9498108abc8108b551ca3009bde678ab8068",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 40,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/chapter_item.dart": {
+      "filePath": "lib/models/chapter_item.dart",
+      "contentHash": "6c49d1800b3da9ffc6f09a46be103dfc10790e5e07ff0dd5a4414a2ffeeead43",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 6,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/comment_item.dart": {
+      "filePath": "lib/models/comment_item.dart",
+      "contentHash": "e965b8133ab2b58120adbc88a6ac4b9be999302900808d4308f617d9bcda1e8a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 20,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/common/charsets_type.dart": {
+      "filePath": "lib/models/common/charsets_type.dart",
+      "contentHash": "ea28bff11e299473b343fda3ac2a12a4a8fffa678984403e755967c246d7296c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 7,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/common/language.dart": {
+      "filePath": "lib/models/common/language.dart",
+      "contentHash": "f55edbf3e204f696e94620c5828e248cbf546f4c912c94e16ec8402382ec8bee",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/common/wenku8_node.dart": {
+      "filePath": "lib/models/common/wenku8_node.dart",
+      "contentHash": "bd3d6af835a77b3c191beb3b504b038197bc240b7b607d9aa30d5169cbee6978",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 8,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/content.dart": {
+      "filePath": "lib/models/content.dart",
+      "contentHash": "072b0a14a480998058f5c56015e6aae423a903c4500d346815d183d255ba8ddf",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 7,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/custom_exception.dart": {
+      "filePath": "lib/models/custom_exception.dart",
+      "contentHash": "5b9829213aadf8443a2dd103d94d8181bb2809fd93e1a86879d9c689b4d6c09a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/dual_page_mode.dart": {
+      "filePath": "lib/models/dual_page_mode.dart",
+      "contentHash": "454c20afeb6df66f1d1e4aa29a2c23a452c4d32c35cf52c6582a9d216a5991a8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/novel_cover.dart": {
+      "filePath": "lib/models/novel_cover.dart",
+      "contentHash": "b16860d8ee03ed8c5d40a845eee222b48eb79e2edfd669bd8191f17479da2fb1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 7,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/novel_detail.dart": {
+      "filePath": "lib/models/novel_detail.dart",
+      "contentHash": "9609ab19fbc12986ed06fd325343b7d7befa418e6370957888f278a6cab6324a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 33,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/novel_detail.g.dart": {
+      "filePath": "lib/models/novel_detail.g.dart",
+      "contentHash": "513a61b5191bcd54b61506418bd9e9d17937e9b6fd493151b27ea380f5253927",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 40,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/page_state.dart": {
+      "filePath": "lib/models/page_state.dart",
+      "contentHash": "7ef1ef2af2e5cb764c5b9f7725e552c0da3a307e5dd466a72b2e558c8507eba0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/reader_direction.dart": {
+      "filePath": "lib/models/reader_direction.dart",
+      "contentHash": "895e4fb9247929aa63c1309ec575f2bdfb1f658e4400a92e1695360cdddbd110",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/recommend_block.dart": {
+      "filePath": "lib/models/recommend_block.dart",
+      "contentHash": "32e3d44fd07cab7e76e84f2b79235c2705abe9ad70c528ad42561b1540902c4b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 8,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/reply_item.dart": {
+      "filePath": "lib/models/reply_item.dart",
+      "contentHash": "8fda800229875ea210b01171ae7e2fa80bcd1f8c0d6986fbc03fa005ab965aae",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 8,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/resource.dart": {
+      "filePath": "lib/models/resource.dart",
+      "contentHash": "41b563863f49ac0db97401211c6600bd0a3218d26a807a6c9a91c502785e2e7c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 15,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/user_info.dart": {
+      "filePath": "lib/models/user_info.dart",
+      "contentHash": "61a7a460fd4821f6166e270b97f283db31d3b6982632f346e16c614aa7c9ef55",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 54,
+      "hasStructuralAnalysis": false
+    },
+    "lib/models/user_info.g.dart": {
+      "filePath": "lib/models/user_info.g.dart",
+      "contentHash": "9dca6d5e444b52e452d93f1df45b982e12d4eee3ef52ebcccebf6658a0880bff",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 72,
+      "hasStructuralAnalysis": false
+    },
+    "lib/network/api.dart": {
+      "filePath": "lib/network/api.dart",
+      "contentHash": "3da8762883969f71486a485453733dd2ac7c42417005d6785fc90623ca31cadc",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 259,
+      "hasStructuralAnalysis": false
+    },
+    "lib/network/chapter_downloader.dart": {
+      "filePath": "lib/network/chapter_downloader.dart",
+      "contentHash": "21b9d5e6e39da14e0f031325cb5a3b23e32305a7cccb26bb9bed4ffab5eb9e9b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 176,
+      "hasStructuralAnalysis": false
+    },
+    "lib/network/image_url_helper.dart": {
+      "filePath": "lib/network/image_url_helper.dart",
+      "contentHash": "d52cd9ff329e9e008a81d45aa0d7bad3e0f58de5648ea9f5ed42d8f3cd3e6551",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 64,
+      "hasStructuralAnalysis": false
+    },
+    "lib/network/parser.dart": {
+      "filePath": "lib/network/parser.dart",
+      "contentHash": "72ba1e30f2d84973cf4b84e2b9ed0873e77af77700720a725efc1fd9dabe9d34",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 558,
+      "hasStructuralAnalysis": false
+    },
+    "lib/network/request.dart": {
+      "filePath": "lib/network/request.dart",
+      "contentHash": "e7bf7c5dbdd2dc1b6309ea17c5f3877b21b6af6b0ca0c5573b80a4e8832e4988",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 163,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/about/controller.dart": {
+      "filePath": "lib/pages/about/controller.dart",
+      "contentHash": "195334b9284b515c3815120be0668e1875f34315d21c83bff27d1af74709b1d8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/about/view.dart": {
+      "filePath": "lib/pages/about/view.dart",
+      "contentHash": "48c7afa29cd916e586632d7c5af17848467c37eeda114b6223fe7728c485ba64",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 73,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/bookshelf/controller.dart": {
+      "filePath": "lib/pages/bookshelf/controller.dart",
+      "contentHash": "6f0a513a2aa9e679becef4e74c2c9fd2c0cc43182a545dca12c56af24fe00cf1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 157,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/bookshelf/view.dart": {
+      "filePath": "lib/pages/bookshelf/view.dart",
+      "contentHash": "0ba06ca24e1c7a0ace6403ecec73dee3c7c0c0fbeee749db9897bd616536cfd8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 104,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/bookshelf/widgets/bookshelf_content_view.dart": {
+      "filePath": "lib/pages/bookshelf/widgets/bookshelf_content_view.dart",
+      "contentHash": "17a143289830d2962d53334ff3b213726d5eab5d6524e4a2d4d2b36bf26437e1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 66,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/bookshelf/widgets/bookshelf_search_view.dart": {
+      "filePath": "lib/pages/bookshelf/widgets/bookshelf_search_view.dart",
+      "contentHash": "8b0c93894ead9468766d369ae33011e07215f15dfdbedb452954c46db4a596f5",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 82,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/browsing_history/controller.dart": {
+      "filePath": "lib/pages/browsing_history/controller.dart",
+      "contentHash": "0488a6c6913b69fbcf74ea9d9c34d6609a9f72e8497000f738a6fbb6d2f3ae74",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 48,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/browsing_history/view.dart": {
+      "filePath": "lib/pages/browsing_history/view.dart",
+      "contentHash": "3fa04382150db3190760108d086f896ed1b6d016dbe45eb0e35af906d8b10163",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 48,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/browsing_history/widgets/browsing_history_card.dart": {
+      "filePath": "lib/pages/browsing_history/widgets/browsing_history_card.dart",
+      "contentHash": "7ea7a4c5633842130d118527e2d08dd463c1cdf229651542d396c4b5ecc7bbd6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 68,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/cache_queue/controller.dart": {
+      "filePath": "lib/pages/cache_queue/controller.dart",
+      "contentHash": "6b4fe853a13aaaa3d27cd45a7e14cfc2ce012c2a7902d22061b8da5ca1407aa6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 167,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/cache_queue/view.dart": {
+      "filePath": "lib/pages/cache_queue/view.dart",
+      "contentHash": "30578e564dff97ce15a91c738382e3111f85b09b3162b3448fd881c8846e4c2b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 72,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/category/controller.dart": {
+      "filePath": "lib/pages/category/controller.dart",
+      "contentHash": "237416d04eaa8cdd6b4e2d759e5abbc538bc294135d25f6dbede491de5c1090c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 32,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/category/view.dart": {
+      "filePath": "lib/pages/category/view.dart",
+      "contentHash": "07e47c3847866d03e31b5beb63a46bcabef8a1bca4b2e6dc516b9fcb57695c46",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 417,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/comment/controller.dart": {
+      "filePath": "lib/pages/comment/controller.dart",
+      "contentHash": "990b8eb80ae854b69d907f2c5c6e70dbc3a560d9ea100b4fa76e7147c7383772",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 86,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/comment/view.dart": {
+      "filePath": "lib/pages/comment/view.dart",
+      "contentHash": "2cdd9bc6b883a8ebd650558c4943382523efa90358c57f5261ac9856436f0d51",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 107,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/comment/widgets/comment_card.dart": {
+      "filePath": "lib/pages/comment/widgets/comment_card.dart",
+      "contentHash": "6c49715c25ad729d592d674fe1de89d39591501f418a495e2bd212db5217df04",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 74,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/completion/controller.dart": {
+      "filePath": "lib/pages/completion/controller.dart",
+      "contentHash": "3bd7b85dc065e30e95858c32282aaae414ceff88eb55ef34dca3baa996905b17",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 24,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/completion/view.dart": {
+      "filePath": "lib/pages/completion/view.dart",
+      "contentHash": "ff183e69d3bd7adece29905de2d17adab8033fbd6866e78d8ce78e5cefd77e06",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 50,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/dev_tools/view.dart": {
+      "filePath": "lib/pages/dev_tools/view.dart",
+      "contentHash": "4d992820e54cc864a81ccbee35a61ec4e1cbee2509e3003b4384d1f2195a13ef",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 158,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/home/controller.dart": {
+      "filePath": "lib/pages/home/controller.dart",
+      "contentHash": "f64f8306d74d73dab212421b9bdb749d85f783e5638640060b808dc7ca04341a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 17,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/home/view.dart": {
+      "filePath": "lib/pages/home/view.dart",
+      "contentHash": "7347d6c23f91e296db7ad963ad49c12be0c7392d31403c92a58a378dc76f616b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 36,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/login/controller.dart": {
+      "filePath": "lib/pages/login/controller.dart",
+      "contentHash": "494a39c7a21f85eb933e2445e2c5f8aab4ec8500d31159c79a00b8ed62b31ed9",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 122,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/login/view.dart": {
+      "filePath": "lib/pages/login/view.dart",
+      "contentHash": "0dcd14ea4155744efcb45967ef924623698a4e5638678893322a86507d44feed",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 112,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/main/controller.dart": {
+      "filePath": "lib/pages/main/controller.dart",
+      "contentHash": "bbc838aba8e0a636bf5b210cf71e01c66e1ceb25cb68c702e48a925ee142430e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 34,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/main/view.dart": {
+      "filePath": "lib/pages/main/view.dart",
+      "contentHash": "4f1bae937bf9a3cc35ae10fd19010bc18b397c4f0c623ff51436b632b0a73832",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 141,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/my/controller.dart": {
+      "filePath": "lib/pages/my/controller.dart",
+      "contentHash": "338f2d673f58008a00e786d5c7d77c629c2a2511cde4cca528e6387e3c0aed5c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 19,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/my/view.dart": {
+      "filePath": "lib/pages/my/view.dart",
+      "contentHash": "0c48adb1109e93b53daa6fc1c939fa7f3cf57c139fffcfcab8489f44a98c3c69",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 66,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/novel_detail/controller.dart": {
+      "filePath": "lib/pages/novel_detail/controller.dart",
+      "contentHash": "dbaa43d7eb98852bd47d2e63c1135e2cd70003dc7bc5759f15cd970a1d9af132",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 451,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/novel_detail/view.dart": {
+      "filePath": "lib/pages/novel_detail/view.dart",
+      "contentHash": "d788e8c16d3dbb84e50c85df04edc63167f3b3c92d3e57e6b57362307f7b7a4f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 538,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/novel_detail/widgets/bottom_text_icon_button.dart": {
+      "filePath": "lib/pages/novel_detail/widgets/bottom_text_icon_button.dart",
+      "contentHash": "bb872b2a0f49890714991eae04eb1f649e8d7ef3ba664b16961909af2b1d9cc1",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 20,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/novel_detail/widgets/icon_text.dart": {
+      "filePath": "lib/pages/novel_detail/widgets/icon_text.dart",
+      "contentHash": "7348818f9a3c862eb823e66e841f7f558447240db3abc9d06c35d31190106e14",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 27,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/photo/controller.dart": {
+      "filePath": "lib/pages/photo/controller.dart",
+      "contentHash": "ec364b3a819910170590aa953a97659ef4e02bd5035ccbdacbc0b9c4fdc94b63",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 14,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/photo/view.dart": {
+      "filePath": "lib/pages/photo/view.dart",
+      "contentHash": "50a33cf5ad8a4d1dfe956c721c34757986d790cbe4992c372a0f569005b1c183",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 86,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/ranking/controller.dart": {
+      "filePath": "lib/pages/ranking/controller.dart",
+      "contentHash": "6e659010dee1793b5e2fa0833e163760aac8c055f972cc1bb393c85b6fc788ed",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 28,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/ranking/view.dart": {
+      "filePath": "lib/pages/ranking/view.dart",
+      "contentHash": "712084811f5c8fbba93b24ab6b2d7461390cc3b631000936a97d11a4c326e6a0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 166,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/reader/controller.dart": {
+      "filePath": "lib/pages/reader/controller.dart",
+      "contentHash": "0b6bc82fb6d74e3f069481c772ee23711902e5e9b4f3de796cc86fbc1c7c6c75",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 777,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/reader/view.dart": {
+      "filePath": "lib/pages/reader/view.dart",
+      "contentHash": "1911c9c58853129d0418543fdd700cb7227f2391e0ab1131c35acc9271fff90d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 544,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/reader/widgets/custom_header.dart": {
+      "filePath": "lib/pages/reader/widgets/custom_header.dart",
+      "contentHash": "b537db56003019b77f39d6a995cf0774f15ba03f735bcc20aaad51ddc8d6f682",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 415,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/reader/widgets/custom_slider.dart": {
+      "filePath": "lib/pages/reader/widgets/custom_slider.dart",
+      "contentHash": "731d1ad35f590818c75994d7a5b245783be36525455196f9d2c209a10386b055",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 195,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/reader/widgets/horizontal_read_page.dart": {
+      "filePath": "lib/pages/reader/widgets/horizontal_read_page.dart",
+      "contentHash": "e18f6c76d5fef6319e234c3484ddcbb8cfdbcce35342f022912c9de63e043e20",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 734,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/reader/widgets/paper_curl_pager.dart": {
+      "filePath": "lib/pages/reader/widgets/paper_curl_pager.dart",
+      "contentHash": "97ff119f45fb8a56ad817974c126ad3b7cc063c36dff66db5c008c98c15317f4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 786,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/reader/widgets/reader_background.dart": {
+      "filePath": "lib/pages/reader/widgets/reader_background.dart",
+      "contentHash": "6ef6146fc3754e56c746f278416ef80fc6bc3d2d0d3287c126f972910a8c864d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/reader/widgets/reader_setting.dart": {
+      "filePath": "lib/pages/reader/widgets/reader_setting.dart",
+      "contentHash": "e4900d775cd3446e23f9e0d81740dbeaff916fe786417adb5afe134225b48903",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 548,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/reader/widgets/tts_floating_controller.dart": {
+      "filePath": "lib/pages/reader/widgets/tts_floating_controller.dart",
+      "contentHash": "f32fa4c6f802ed30c0a6a637c51715e8ac40dc0934e6c6f99234597e6707652d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 104,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/reader/widgets/vertical_read_page.dart": {
+      "filePath": "lib/pages/reader/widgets/vertical_read_page.dart",
+      "contentHash": "7d2aa3172ecf57ce76b1c2e5d78082e3c714e6dc63f9fbd0babee680c468aef0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 254,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/recommend/controller.dart": {
+      "filePath": "lib/pages/recommend/controller.dart",
+      "contentHash": "33c174023b7f72bdb535e80be6df20af13e6d416ab0db02c87eb7b781b90c98b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 39,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/recommend/view.dart": {
+      "filePath": "lib/pages/recommend/view.dart",
+      "contentHash": "ef912e52c35dc6615b06cddd5972868aa589d205be07f0af2618d6befd6b1aa5",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 49,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/recommend/widgets/recommend_block_view.dart": {
+      "filePath": "lib/pages/recommend/widgets/recommend_block_view.dart",
+      "contentHash": "9318d6951a56f0535061bab72c13e4d54f2316b52480f47f286e462b302a3ae8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 42,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/reply/controller.dart": {
+      "filePath": "lib/pages/reply/controller.dart",
+      "contentHash": "001d51240543ec6e6f58884c82fc106b97ccef135b8491f411599d4c87579d0d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 82,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/reply/view.dart": {
+      "filePath": "lib/pages/reply/view.dart",
+      "contentHash": "9d7e7064993549775ef1e93a3fb095e8dc5eed3f3bad5f723979cc89c9ac8542",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 109,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/reply/widgets/reply_card.dart": {
+      "filePath": "lib/pages/reply/widgets/reply_card.dart",
+      "contentHash": "24587ace2b04cd97af646b549745c34cea841b48c0181c3005ac2d53cde3e46b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 56,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/search/controller.dart": {
+      "filePath": "lib/pages/search/controller.dart",
+      "contentHash": "f15eefd693d1095ef60482d6cf5e690976322e9fb284566acba2992bd7d22584",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 130,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/search/view.dart": {
+      "filePath": "lib/pages/search/view.dart",
+      "contentHash": "dc90d9c1e17ffd829763b73b0c336523ec4488685e47caac590bc68cfaae7558",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 188,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/setting/controller.dart": {
+      "filePath": "lib/pages/setting/controller.dart",
+      "contentHash": "57f751d84da4797e89714cc4e893608a93ef455ddb1e4bd2eacafa92e161dbfb",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 67,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/setting/view.dart": {
+      "filePath": "lib/pages/setting/view.dart",
+      "contentHash": "c013a0544b58bfc201fe0b9659db24befb6a8cf7c268d75ea74ee74030130e42",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 161,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/user_bookshelf/controller.dart": {
+      "filePath": "lib/pages/user_bookshelf/controller.dart",
+      "contentHash": "a1485950d74d26aede36e2bceb5399f50bc6faaad2bd84cadd31e277227685b0",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 38,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/user_bookshelf/view.dart": {
+      "filePath": "lib/pages/user_bookshelf/view.dart",
+      "contentHash": "7cb4c34c487745a7fbbb45a86f0a3bc31fc3ad4d0e54214937665723998d85bc",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 46,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/user_bookshelf/widgets/user_novel_card.dart": {
+      "filePath": "lib/pages/user_bookshelf/widgets/user_novel_card.dart",
+      "contentHash": "24454172be97d8f26ae4554f56f23ee2486e3a45932bca2e9b8d496014e7c40c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 24,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/user_info/controller.dart": {
+      "filePath": "lib/pages/user_info/controller.dart",
+      "contentHash": "a3b5c35e764faa546563ef42edd8af1552b4825049fdf0dcd563d85a68dd7866",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 39,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/user_info/view.dart": {
+      "filePath": "lib/pages/user_info/view.dart",
+      "contentHash": "0936652c383fa7da1234ccdd1ec3565cf7e9fb902bf497f708e17c7952526535",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 55,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/user_info/widgets/item_text.dart": {
+      "filePath": "lib/pages/user_info/widgets/item_text.dart",
+      "contentHash": "06ae1122948b013f51fb8b7f344becbe8a96893645e3b4a5ea5f9070063b8224",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 17,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/welcome/controller.dart": {
+      "filePath": "lib/pages/welcome/controller.dart",
+      "contentHash": "de12090c9a55fe940a05485666ba6605ee1cd4a2ad07c4a3c73e6499aa1f9bdd",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": false
+    },
+    "lib/pages/welcome/view.dart": {
+      "filePath": "lib/pages/welcome/view.dart",
+      "contentHash": "6c2a46e2b0b7bcde97dafc8a606f618fb98a0d15dadec0f6bdcf723f739fb884",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 63,
+      "hasStructuralAnalysis": false
+    },
+    "lib/router/app_pages.dart": {
+      "filePath": "lib/router/app_pages.dart",
+      "contentHash": "c1452497432db907a965dfbd7242cde12a7610a064043138138c6dfd38b51387",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 93,
+      "hasStructuralAnalysis": false
+    },
+    "lib/router/app_sub_router.dart": {
+      "filePath": "lib/router/app_sub_router.dart",
+      "contentHash": "ff3901400fcdc40e3b2b9abcbf7df2057ee38aa22a746418ba92c5f9f1b88006",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 45,
+      "hasStructuralAnalysis": false
+    },
+    "lib/router/route_path.dart": {
+      "filePath": "lib/router/route_path.dart",
+      "contentHash": "1080f7307158cf0cdabcf4b79ee0b01c7beb8e2108bfbb1cf5296e5a969e9430",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 41,
+      "hasStructuralAnalysis": false
+    },
+    "lib/service/db_service.dart": {
+      "filePath": "lib/service/db_service.dart",
+      "contentHash": "0c3a6835418733422efe88b5703850a1580bf2e670345534c0b464d2eadf475c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 62,
+      "hasStructuralAnalysis": false
+    },
+    "lib/service/dev_mode_service.dart": {
+      "filePath": "lib/service/dev_mode_service.dart",
+      "contentHash": "baf9ea59ac5cd52a2f188af3994717fd154780d684d587f5a9338cf622d2bd6a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": false
+    },
+    "lib/service/local_storage_service.dart": {
+      "filePath": "lib/service/local_storage_service.dart",
+      "contentHash": "37e2ba522905a86a61af3ca5ed810157f925d844d2c9634e6677d39ec4bb405f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 251,
+      "hasStructuralAnalysis": false
+    },
+    "lib/service/tts_service.dart": {
+      "filePath": "lib/service/tts_service.dart",
+      "contentHash": "44f2a804d081af58172ad2c779da4944b5ee7571c0937667015b96b06fee82de",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 492,
+      "hasStructuralAnalysis": false
+    },
+    "lib/widgets/bottom_action_bar.dart": {
+      "filePath": "lib/widgets/bottom_action_bar.dart",
+      "contentHash": "a30e289f2aaf9a9d2a2db33e03134fd99660f27de0718bc82fbcbd6a6fada080",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 81,
+      "hasStructuralAnalysis": false
+    },
+    "lib/widgets/custom_tile.dart": {
+      "filePath": "lib/widgets/custom_tile.dart",
+      "contentHash": "97dc3259154aeeff37918b47a17ef750a720147b1ed83127b7ff38190c05a18d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 176,
+      "hasStructuralAnalysis": false
+    },
+    "lib/widgets/keep_alive_wrapper.dart": {
+      "filePath": "lib/widgets/keep_alive_wrapper.dart",
+      "contentHash": "b705287c2a80e6a36401f83810f6f5e31d652e94e6a4f97325ca3c614d534910",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 22,
+      "hasStructuralAnalysis": false
+    },
+    "lib/widgets/novel_cover_card.dart": {
+      "filePath": "lib/widgets/novel_cover_card.dart",
+      "contentHash": "f89629a3659c0fbfb65107554cdca73ea390adcebe04498aa9377fedf337fc93",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 147,
+      "hasStructuralAnalysis": false
+    },
+    "lib/widgets/state_page.dart": {
+      "filePath": "lib/widgets/state_page.dart",
+      "contentHash": "a213eba73084c206eb7a6a359cdb0b03e2d60e5fe90bd29e6ec6e62887815714",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 159,
+      "hasStructuralAnalysis": false
+    },
+    "test/widget_test.dart": {
+      "filePath": "test/widget_test.dart",
+      "contentHash": "90623ddb2bf6a36e62a28552765cd3b11c6dc2d93fc95a469e3888b1614f5996",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": false
+    }
+  }
+}

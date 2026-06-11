@@ -149,7 +149,7 @@ class BuildMainApp extends StatelessWidget {
       locale: Util.getCurrentLocale(),
       fallbackLocale: Locale("zh", "CN"),
       getPages: AppRoutes.mainRoutePages,
-      initialRoute: LocalStorageService.instance.getCookie() != null ? RoutePath.main : RoutePath.welcome, //初始页面
+      initialRoute: RoutePath.main, //初始页面
     );
   }
 }

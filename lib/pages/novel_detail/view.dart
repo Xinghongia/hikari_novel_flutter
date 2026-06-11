@@ -56,6 +56,7 @@ class _NovelDetailPageState extends State<NovelDetailPage> {
         Obx(() => Offstage(offstage: controller.pageState.value != PageState.success, child: _buildPage(context))),
         Obx(() => Offstage(offstage: controller.pageState.value != PageState.loading, child: _buildLoadingPage())),
         Obx(() => Offstage(offstage: controller.pageState.value != PageState.error, child: _buildErrorPage())),
+        Obx(() => Offstage(offstage: controller.pageState.value != PageState.needLogin, child: _buildLoginPrompt(context))),
       ],
     );
   }
@@ -65,6 +66,26 @@ class _NovelDetailPageState extends State<NovelDetailPage> {
   Widget _buildErrorPage() => Scaffold(
     appBar: AppBar(),
     body: ErrorMessage(msg: controller.errorMsg, action: controller.getNovelDetail),
+  );
+
+  Widget _buildLoginPrompt(BuildContext context) => Scaffold(
+    appBar: AppBar(),
+    body: Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(Icons.login, size: 64, color: Theme.of(context).colorScheme.primary),
+          const SizedBox(height: 16),
+          Text(controller.errorMsg, style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
+          const SizedBox(height: 20),
+          FilledButton.icon(
+            onPressed: () => Get.toNamed(RoutePath.login),
+            label: Text("go_to_login".tr),
+            icon: const Icon(Icons.login),
+          ),
+        ],
+      ),
+    ),
   );
 
   Widget _buildPage(BuildContext context) {

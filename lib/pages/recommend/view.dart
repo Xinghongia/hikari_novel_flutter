@@ -41,6 +41,31 @@ class RecommendView extends StatelessWidget {
               child: ErrorMessage(msg: controller.errorMsg, action: controller.getRecommend),
             ),
           ),
+          Obx(
+            () => Offstage(
+              offstage: controller.pageState.value != PageState.needLogin,
+              child: _buildLoginPrompt(context),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildLoginPrompt(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(Icons.login, size: 64, color: Theme.of(context).colorScheme.primary),
+          const SizedBox(height: 16),
+          Text(controller.errorMsg, style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
+          const SizedBox(height: 20),
+          FilledButton.icon(
+            onPressed: controller.goLogin,
+            label: Text("go_to_login".tr),
+            icon: const Icon(Icons.login),
+          ),
         ],
       ),
     );

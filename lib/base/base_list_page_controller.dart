@@ -1,6 +1,7 @@
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hikari_novel_flutter/router/route_path.dart';
 import 'package:hikari_novel_flutter/widgets/state_page.dart';
 
 import '../models/page_state.dart';
@@ -26,6 +27,10 @@ abstract class BaseListPageController<T> extends GetxController {
 
   List<T> getParser(String html);
 
+  void goLogin() {
+    Get.toNamed(RoutePath.login);
+  }
+
   Future<IndicatorResult> getPage(bool loadMore) async {
     if (!loadMore) {
       pageState.value = PageState.loading;
@@ -40,6 +45,26 @@ abstract class BaseListPageController<T> extends GetxController {
     switch (result) {
       case Success():
         {
+          // 检查是否是错误页面（需要登录）
+          if (Parser.isError(result.data)) {
+            if (!loadMore) {
+              errorMsg = "need_login_to_browse".tr;
+              pageState.value = PageState.needLogin;
+            } else {
+              Get.dialog(
+                AlertDialog(
+                  title: Text("warning".tr),
+                  content: Text("need_login_to_browse".tr),
+                  actions: [TextButton(onPressed: Get.back, child: Text("confirm".tr))],
+                ),
+              );
+            }
+            if (_index > 0) {
+              _index -= 1;
+            }
+            return IndicatorResult.fail;
+          }
+
           if (!loadMore) _maxNum = Parser.getMaxNum(result.data);
           data.addAll(getParser(result.data));
 

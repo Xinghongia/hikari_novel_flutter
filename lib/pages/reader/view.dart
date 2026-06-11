@@ -1,7 +1,6 @@
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hikari_novel_flutter/common/log.dart';
 import 'package:hikari_novel_flutter/models/reader_direction.dart';
 import 'package:hikari_novel_flutter/pages/reader/controller.dart';
 import 'package:hikari_novel_flutter/pages/reader/widgets/custom_header.dart';
@@ -53,7 +52,8 @@ class ReaderPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return ExcludeSemantics(
+      child: Scaffold(
       body: Stack(
         children: [
           Obx(
@@ -77,6 +77,12 @@ class ReaderPage extends StatelessWidget {
             () => Offstage(
               offstage: controller.pageState.value != PageState.error,
               child: ErrorMessage(msg: controller.errorMsg, action: controller.getContent),
+            ),
+          ),
+          Obx(
+            () => Offstage(
+              offstage: controller.pageState.value != PageState.needLogin,
+              child: _buildLoginPrompt(context),
             ),
           ),
           _buildBottomStatusBar(context),
@@ -185,6 +191,7 @@ class ReaderPage extends StatelessWidget {
           }),
         ],
       ),
+    ),
     );
   }
 
@@ -201,7 +208,7 @@ class ReaderPage extends StatelessWidget {
   Widget _buildVertical(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
-      onTap: () => controller.showBar.value = !controller.showBar.value,
+      onTap: () => controller.toggleShowBar(),
       child: SizedBox(
         height: double.infinity,
         child: EasyRefresh(
@@ -272,7 +279,7 @@ class ReaderPage extends StatelessWidget {
         Theme.of(context).brightness == Brightness.dark ? 0.18 : 0.10,
       ),
       pageFooter: _useInPageBottomStatusBar() ? _buildInPageStatusBar(context) : null,
-      onCenterTap: () => controller.showBar.value = !controller.showBar.value,
+      onCenterTap: () => controller.toggleShowBar(),
       onLeftTap: controller.prevPage,
       onRightTap: controller.nextPage,
       onReachStart: controller.prevChapter,
@@ -540,5 +547,27 @@ class ReaderPage extends StatelessWidget {
     } else {
       return const Icon(Icons.battery_0_bar, size: kSmallIconSize); // <15%
     }
+  }
+
+  Widget _buildLoginPrompt(BuildContext context) {
+    return Container(
+      color: Theme.of(context).colorScheme.surface,
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.login, size: 64, color: Theme.of(context).colorScheme.primary),
+            const SizedBox(height: 16),
+            Text(controller.errorMsg, style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
+            const SizedBox(height: 20),
+            FilledButton.icon(
+              onPressed: controller.goLogin,
+              label: Text("go_to_login".tr),
+              icon: const Icon(Icons.login),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

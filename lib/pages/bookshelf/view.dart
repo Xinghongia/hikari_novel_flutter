@@ -3,10 +3,12 @@ import 'package:get/get.dart';
 import 'package:hikari_novel_flutter/pages/bookshelf/controller.dart';
 import 'package:hikari_novel_flutter/pages/bookshelf/widgets/bookshelf_content_view.dart';
 import 'package:hikari_novel_flutter/pages/bookshelf/widgets/bookshelf_search_view.dart';
+import 'package:hikari_novel_flutter/service/local_storage_service.dart';
 
 import '../../common/extension.dart';
 import '../../common/common_widgets.dart';
 import '../../models/page_state.dart';
+import '../../router/route_path.dart';
 import '../../widgets/state_page.dart';
 
 class BookshelfPage extends StatelessWidget {
@@ -20,6 +22,12 @@ class BookshelfPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isLoggedIn = LocalStorageService.instance.getCookie() != null;
+
+    if (!isLoggedIn) {
+      return _buildLoginPrompt(context);
+    }
+
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, _) {
@@ -39,6 +47,28 @@ class BookshelfPage extends StatelessWidget {
           Obx(() => Offstage(offstage: controller.pageState.value != PageState.bookshelfContent, child: _buildBookshelfContent(context))),
           Obx(() => Offstage(offstage: controller.pageState.value != PageState.bookshelfSearch, child: BookshelfSearchView())),
         ],
+      ),
+    );
+  }
+
+  Widget _buildLoginPrompt(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("bookshelf".tr), scrolledUnderElevation: 0),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.login, size: 64, color: Theme.of(context).colorScheme.primary),
+            const SizedBox(height: 16),
+            Text("welcome_tip".tr, style: TextStyle(fontSize: 16)),
+            const SizedBox(height: 20),
+            FilledButton.icon(
+              onPressed: () => Get.toNamed(RoutePath.login),
+              label: Text("go_to_login".tr),
+              icon: const Icon(Icons.login),
+            ),
+          ],
+        ),
       ),
     );
   }

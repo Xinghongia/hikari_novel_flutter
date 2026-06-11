@@ -5,6 +5,9 @@ import 'package:hikari_novel_flutter/common/constants.dart';
 import 'package:hikari_novel_flutter/network/request.dart';
 import 'package:hikari_novel_flutter/pages/my/controller.dart';
 import 'package:hikari_novel_flutter/router/app_sub_router.dart';
+import 'package:hikari_novel_flutter/service/local_storage_service.dart';
+
+import '../../router/route_path.dart';
 
 class MyPage extends StatelessWidget {
   MyPage({super.key});
@@ -13,6 +16,12 @@ class MyPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isLoggedIn = LocalStorageService.instance.getCookie() != null;
+
+    if (!isLoggedIn) {
+      return _buildLoginPrompt(context);
+    }
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(8),
@@ -25,6 +34,28 @@ class MyPage extends StatelessWidget {
             ListTile(title: Text("setting".tr), leading: const Icon(Icons.settings_outlined), onTap: AppSubRouter.toSetting),
             ListTile(title: Text("about".tr), leading: const Icon(Icons.info_outline), onTap: AppSubRouter.toAbout),
             ListTile(title: Text("logout".tr), leading: const Icon(Icons.logout), onTap: controller.logout),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildLoginPrompt(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("my".tr), scrolledUnderElevation: 0),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.person_outline, size: 64, color: Theme.of(context).colorScheme.primary),
+            const SizedBox(height: 16),
+            Text("welcome_tip".tr, style: TextStyle(fontSize: 16)),
+            const SizedBox(height: 20),
+            FilledButton.icon(
+              onPressed: () => Get.toNamed(RoutePath.login),
+              label: Text("go_to_login".tr),
+              icon: const Icon(Icons.login),
+            ),
           ],
         ),
       ),

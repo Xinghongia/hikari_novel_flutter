@@ -10,6 +10,7 @@ import 'package:hikari_novel_flutter/models/reader_direction.dart';
 import 'package:hikari_novel_flutter/network/parser.dart';
 import 'package:hikari_novel_flutter/pages/bookshelf/controller.dart';
 import 'package:hikari_novel_flutter/pages/cache_queue/controller.dart';
+import 'package:hikari_novel_flutter/router/route_path.dart';
 import 'package:hikari_novel_flutter/widgets/state_page.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -28,6 +29,7 @@ class NovelDetailController extends GetxController with GetSingleTickerProviderS
 
   NovelDetailController({required this.aid});
 
+  bool _isClosed = false;
   Rx<PageState> pageState = PageState.loading.obs;
   String errorMsg = "";
   Rxn<NovelDetail> novelDetail = Rxn();
@@ -65,6 +67,7 @@ class NovelDetailController extends GetxController with GetSingleTickerProviderS
 
   @override
   void onClose() {
+    _isClosed = true;
     _fabAnimationCtr.dispose();
     super.onClose();
   }
@@ -217,11 +220,23 @@ class NovelDetailController extends GetxController with GetSingleTickerProviderS
     late NovelDetail data;
 
     final nd = await Api.getNovelDetail(aid: aid);
+    if (_isClosed) return;
 
     switch (nd) {
       case Success():
+        // 检查是否是错误页面（需要登录）
+        if (Parser.isError(nd.data)) {
+          //检测本地是否有缓存
+          if (await _getNovelDetailByLocal()) return;
+          errorMsg = "need_login_to_browse".tr;
+          pageState.value = PageState.needLogin;
+          return;
+        }
+
         data = Parser.getNovelDetail(nd.data);
         final cat = await Api.getCatalogue(aid: aid);
+        if (_isClosed) return;
+
         switch (cat) {
           case Success():
             {
@@ -231,6 +246,7 @@ class NovelDetailController extends GetxController with GetSingleTickerProviderS
               DBService.instance.upsertBrowsingHistory(BrowsingHistoryEntityData(aid: aid, title: data.title, img: data.imgUrl, time: DateTime.now()));
 
               final bs = await DBService.instance.getAllBookshelf();
+              if (_isClosed) return;
               isInBookshelf.value = bs.any((e) => e.aid == aid);
 
               pageState.value = PageState.success;
@@ -256,6 +272,7 @@ class NovelDetailController extends GetxController with GetSingleTickerProviderS
 
   Future<bool> _getNovelDetailByLocal() async {
     final local = (await DBService.instance.getNovelDetail(aid))?.json;
+    if (_isClosed) return false;
 
     if (local == null) {
       return false;
@@ -266,9 +283,34 @@ class NovelDetailController extends GetxController with GetSingleTickerProviderS
     }
   }
 
+  bool _checkLogin() {
+    if (LocalStorageService.instance.getCookie() == null) {
+      Get.dialog(
+        AlertDialog(
+          icon: const Icon(Icons.login),
+          title: Text("warning".tr),
+          content: Text("welcome_tip".tr),
+          actions: [
+            TextButton(onPressed: Get.back, child: Text("cancel".tr)),
+            TextButton(
+              onPressed: () {
+                Get.back();
+                Get.toNamed(RoutePath.login);
+              },
+              child: Text("go_to_login".tr),
+            ),
+          ],
+        ),
+      );
+      return false;
+    }
+    return true;
+  }
+
   bool _isAdding = false; //防抖
   void addToBookshelf() async {
     if (_isAdding) return;
+    if (!_checkLogin()) return;
     _isAdding = true;
     final result = await Api.addNovel(aid: aid);
     switch (result) {
@@ -300,6 +342,7 @@ class NovelDetailController extends GetxController with GetSingleTickerProviderS
   bool _isRemoving = false; //防抖
   void removeFromBookshelf() async {
     if (_isRemoving) return;
+    if (!_checkLogin()) return;
     _isRemoving = true;
     final bs = await DBService.instance.getAllBookshelf();
     final delId = bs.firstWhere((i) => i.aid == aid).bid;
